@@ -5,8 +5,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
+@RequestMapping("/api/v1")
 public class UsuarioController {
     @Autowired // para nn ter o nullpointer
     private UsuarioRepository repository;
@@ -23,6 +25,12 @@ public class UsuarioController {
     public List<Usuario> findAll(){
         //SELECT * FROM cliente
         return repository.findAll();
+    }
+
+    @GetMapping("/usuarios/{id}")
+    public Optional<Usuario> findbyId(@PathVariable Long id){
+        //SELECT * FROM cliente
+        return repository.findById(id);
     }
 
     @PutMapping("/usuarios/{id}")

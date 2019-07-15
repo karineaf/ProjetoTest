@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Data
 @AllArgsConstructor
@@ -29,18 +30,23 @@ private Long id;
 
 @NotBlank
 @NotNull
+@Size(max = 100)
 private String nome;
 
 @NotBlank
 @Email
 @NotNull
+@Size(max = 100)
 private String email;
 
 @NotBlank
 @NotNull
+@Size(max = 100)
 private String login;
 
 @NotBlank
 @NotNull
+@Size(max = 100)
 private String senha;
+
 }
